@@ -4,9 +4,12 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    
+    [Header("Input Settings")]
+    public string horizontalInput = "Horizontal_P1";
+    public string jumpInput = "Jump_P1";
+
     [Header("Movement")]
     public float moveSpeed = 12f;
     public float acceleration = 40f;
@@ -37,10 +40,10 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         // Input
-        moveInput = Input.GetAxisRaw("Horizontal");
+        moveInput = Input.GetAxisRaw(horizontalInput);
 
         // Jump input buffering
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown(jumpInput))
             jumpBufferCounter = jumpBufferTime;
         else
             jumpBufferCounter -= Time.deltaTime;
