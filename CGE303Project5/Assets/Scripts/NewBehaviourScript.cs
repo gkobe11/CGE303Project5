@@ -1,0 +1,105 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+[RequireComponent(typeof(Rigidbody2D))]
+public class NewBehaviourScript : MonoBehaviour
+{
+    
+    [Header("Movement")]
+    public float moveSpeed = 12f;
+    public float acceleration = 40f;
+    public float deceleration = 60f;
+    public float airControlMultiplier = 0.6f;
+
+    [Header("Jumping")]
+    public float jumpForce = 10f;
+    public float coyoteTime = 0.1f; // Hang time after leaving ground
+    public float jumpBufferTime = 0.1f; // Input buffer for jump
+
+    [Header("Ground Detection")]
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
+
+    private Rigidbody2D rb;
+    private float moveInput;
+    private bool isGrounded;
+    private float coyoteCounter;
+    private float jumpBufferCounter;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        // Input
+        moveInput = Input.GetAxisRaw("Horizontal");
+
+        // Jump input buffering
+        if (Input.GetButtonDown("Jump"))
+            jumpBufferCounter = jumpBufferTime;
+        else
+            jumpBufferCounter -= Time.deltaTime;
+
+        // Ground check
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (isGrounded)
+            coyoteCounter = coyoteTime;
+        else
+            coyoteCounter -= Time.deltaTime;
+
+        // Jumping
+        if (jumpBufferCounter > 0 && coyoteCounter > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpBufferCounter = 0;
+        }
+
+        // Better jump feel
+        if (rb.velocity.y < 0)
+        {
+            // Falling
+            rb.gravityScale = 3f; // Increase this value to fall faster
+        }
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            // Jump cut (released button mid-air)
+            rb.gravityScale = 2f;
+        }
+        else
+        {
+            // Normal jump
+            rb.gravityScale = 1f;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        float targetSpeed = moveInput * moveSpeed;
+        float speedDif = targetSpeed - rb.velocity.x;
+        float accelRate = isGrounded ? (Mathf.Abs(targetSpeed) > 0.01f ? acceleration : deceleration) : acceleration * airControlMultiplier;
+
+        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, 0.9f) * Mathf.Sign(speedDif);
+
+        rb.AddForce(Vector2.right * movement);
+
+        // Limit max horizontal speed
+        if (Mathf.Abs(rb.velocity.x) > moveSpeed)
+            rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * moveSpeed, rb.velocity.y);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
+}
+
