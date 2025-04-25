@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PowerUpCollection : MonoBehaviour
 {
-    public string powerUpType = "Dash";
-    // Add more power-up types as needed
+    public List<string> powerUpTypes = new List<string> { "Dash" }; // Add more power-up types as needed
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerPowerUp playerPowerUp = other.GetComponent<PlayerPowerUp>();
         if (playerPowerUp != null)
         {
-            playerPowerUp.ReceivePowerUp(powerUpType);
+            string randomPowerUp = powerUpTypes[Random.Range(0, powerUpTypes.Count)];
+            playerPowerUp.ReceivePowerUp(randomPowerUp);
             Destroy(gameObject); // Remove the box after pickup
         }
     }

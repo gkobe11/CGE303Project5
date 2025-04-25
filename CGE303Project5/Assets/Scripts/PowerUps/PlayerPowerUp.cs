@@ -51,6 +51,11 @@ public class PlayerPowerUp : MonoBehaviour
 
             Debug.Log("Activating Dash Power-Up");
         }
+        else if (currentPowerUp == "FireBall")
+        {
+            StartCoroutine(FireBallRoutine());
+            Debug.Log("Activating FireBall Power-Up");
+        }
         // Add more power-ups here as needed
 
         hasPowerUp = false;
@@ -100,5 +105,11 @@ public class PlayerPowerUp : MonoBehaviour
         rb.velocity = Vector2.zero;
         controller.enabled = true;
         isDashing = false;
+    }
+
+    private IEnumerator FireBallRoutine()
+    {
+        // Implement FireBall logic here
+        yield return null; // Placeholder for FireBall logic
     }
 }

@@ -192,5 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d1531bda9cb9e41a22eafd549872a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usePowerUpButton: 117
+  usePowerUpButton: 303
   powerUpUI: {fileID: 0}
+  dashSpeed: 30
+  dashDuration: 0.2
