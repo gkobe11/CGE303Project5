@@ -122,4 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004dc7a53d5775f4bb17fe5db81a265f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpType: PlaceHolder
+  powerUpTypes:
+  - Dash
+  - FireBall
