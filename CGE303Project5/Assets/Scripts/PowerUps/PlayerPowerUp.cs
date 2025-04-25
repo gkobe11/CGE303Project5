@@ -12,6 +12,12 @@ public class PlayerPowerUp : MonoBehaviour
     private PlayerController controller;
     public PowerUpUI powerUpUI; // set in inspector
 
+    //Dash power up
+    [SerializeField] private float dashSpeed = 30f;
+    [SerializeField] private float dashDuration = 0.2f;
+
+    private bool isDashing = false;
+
     void Start()
     {
         controller = GetComponent<PlayerController>();
@@ -39,9 +45,11 @@ public class PlayerPowerUp : MonoBehaviour
 
     void ActivatePowerUp()
     {
-        if (currentPowerUp == "PlaceHolder")
+        if (currentPowerUp == "Dash")
         {
-            StartCoroutine(PlaceHolderRoutine());
+            StartCoroutine(DashRoutine());
+
+            Debug.Log("Activating Dash Power-Up");
         }
         // Add more power-ups here as needed
 
@@ -54,12 +62,43 @@ public class PlayerPowerUp : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator PlaceHolderRoutine()
+    private IEnumerator DashRoutine()
     {
-        Debug.Log(gameObject.name + " activated Power Up!");
+        isDashing = true;
 
-        yield return new WaitForSeconds(3f);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        PlayerController controller = GetComponent<PlayerController>();
 
-        Debug.Log("Power up ended.");
+        // Get raw player input
+        float x = Input.GetAxisRaw(controller.horizontalInput);
+        float y = Input.GetAxisRaw(controller.jumpInput);
+
+        Vector2 dashDirection = new Vector2(x, y);
+
+        if (dashDirection.magnitude < 0.1f)
+        {
+            // Fallback to facing direction if no input
+            dashDirection = Vector2.right * (transform.localScale.x >= 0 ? 1 : -1);
+        }
+        else
+        {
+            dashDirection = dashDirection.normalized;
+        }
+
+        // Disable gravity and movement
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0;
+        rb.velocity = dashDirection * dashSpeed;
+
+        // Disable PlayerController during dash
+        controller.enabled = false;
+
+        yield return new WaitForSeconds(dashDuration);
+
+        // Restore normal movement
+        rb.gravityScale = originalGravity;
+        rb.velocity = Vector2.zero;
+        controller.enabled = true;
+        isDashing = false;
     }
 }

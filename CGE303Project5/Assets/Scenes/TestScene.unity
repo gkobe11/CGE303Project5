@@ -496,9 +496,21 @@ PrefabInstance:
       value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 9191809621472846292, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
+      propertyPath: dashSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191809621472846292, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
       propertyPath: powerUpUI
       value: 
       objectReference: {fileID: 1348972270}
+    - target: {fileID: 9191809621472846292, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
+      propertyPath: dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191809621472846292, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
+      propertyPath: usePowerUpButton
+      value: 304
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
 --- !u!1 &1342293994
@@ -949,9 +961,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2445831214703128621, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
+      propertyPath: dashSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445831214703128621, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
       propertyPath: powerUpUI
       value: 
       objectReference: {fileID: 174898789067255446}
+    - target: {fileID: 2445831214703128621, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
+      propertyPath: dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445831214703128621, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
+      propertyPath: usePowerUpButton
+      value: 303
+      objectReference: {fileID: 0}
     - target: {fileID: 7579860954138921582, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -1062,6 +1086,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5233174012166157034, guid: 4fa3879734f7e124a975d920a95ab37e, type: 3}
+      propertyPath: powerUpType
+      value: Dash
+      objectReference: {fileID: 0}
     - target: {fileID: 5233174012166157037, guid: 4fa3879734f7e124a975d920a95ab37e, type: 3}
       propertyPath: m_RootOrder
       value: 4

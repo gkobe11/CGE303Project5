@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpCollection : MonoBehaviour
 {
-    public string powerUpType = "PlaceHolder";
+    public string powerUpType = "Dash";
     // Add more power-up types as needed
 
     private void OnTriggerEnter2D(Collider2D other)
