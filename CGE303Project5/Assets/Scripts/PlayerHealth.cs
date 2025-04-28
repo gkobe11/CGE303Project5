@@ -1,0 +1,122 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class PlayerHealth : MonoBehaviour
+{
+    [Header("Respawn Settings")]
+    public float deathDelay = 1.0f; // Time before respawning
+    private Transform[] respawnPoints; // all possible respawn points
+    private Transform lastRespawnPoint; 
+
+    [Header("Fall Detection")]
+    public float fallThreshold = -10f; // Y position to trigger fall death
+
+    private PlayerController playerController;
+    private Rigidbody2D rb;
+
+    private bool isDead = false;
+
+    void Start()
+    {
+        playerController = GetComponent<PlayerController>();
+        rb = GetComponent<Rigidbody2D>();
+
+        // Find all respawn points
+        GameObject respawnParent = GameObject.Find("RespawnPoints");
+        if (respawnParent != null)
+        {
+            List<Transform> points = new List<Transform>();
+            foreach (Transform child in respawnParent.transform)
+            {
+                points.Add(child);
+            }
+            respawnPoints = points.ToArray();
+        }
+        else
+        {
+            Debug.LogError("No RespawnPoints object found!");
+        }
+    }
+
+    void Update()
+    {
+        if (!isDead && transform.position.y < fallThreshold)
+        {
+            Die();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (isDead) return;
+
+        if (other.CompareTag("Trap") || other.CompareTag("EnemyAttack"))
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        if (isDead) return;
+
+        isDead = true;
+        playerController.enabled = false;
+        rb.velocity = Vector2.zero;
+
+        // Optional: play death animation/effect here
+
+        FindBestRespawnPoint();
+        StartCoroutine(Respawn());
+    }
+
+    private void FindBestRespawnPoint()
+    {
+        float bestDistance = Mathf.Infinity;
+        Transform bestPoint = null;
+        Vector2 deathPosition = transform.position;
+
+        foreach (var point in respawnPoints)
+        {
+            // Only consider points behind the player (X coordinate smaller)
+            if (point.position.x <= deathPosition.x)
+            {
+                float distance = Vector2.Distance(deathPosition, point.position);
+
+                if (distance < bestDistance)
+                {
+                    bestDistance = distance;
+                    bestPoint = point;
+                }
+            }
+        }
+
+        if (bestPoint != null)
+        {
+            lastRespawnPoint = bestPoint;
+        }
+        else
+        {
+            // Fallback: use first respawn point
+            lastRespawnPoint = respawnPoints.Length > 0 ? respawnPoints[0] : null;
+        }
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(deathDelay);
+
+        if (lastRespawnPoint != null)
+        {
+            transform.position = lastRespawnPoint.position;
+        }
+        else
+        {
+            Debug.LogWarning("No valid respawn point found!");
+        }
+
+        playerController.enabled = true;
+        isDead = false;
+    }
+}
