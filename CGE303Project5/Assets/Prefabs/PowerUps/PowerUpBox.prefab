@@ -124,4 +124,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpTypes:
   - Dash
-  - FireBall

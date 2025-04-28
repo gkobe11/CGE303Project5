@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpCollection : MonoBehaviour
 {
-    public List<string> powerUpTypes = new List<string> { "Dash" }; // Add more power-up types as needed
+    public List<string> powerUpTypes = new List<string> { "Dash", "FireBall", "Lightning", "Swap" }; // Add more power-up types as needed
 
     private void OnTriggerEnter2D(Collider2D other)
     {
