@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class OpenScene : MonoBehaviour
 {
+    public void TutorialScene()
+    {
+        SceneManager.LoadScene("TutorialLevel");
+    }
+
     public void SceneOne()
     {
         SceneManager.LoadScene("Level1");

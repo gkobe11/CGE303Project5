@@ -43869,6 +43869,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndOfRacePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2220410321417894324, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1737796979}
+    - target: {fileID: 2220410321417894324, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220410321417894324, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OpenScene, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
 --- !u!1 &1550169579
@@ -50309,6 +50321,7 @@ GameObject:
   - component: {fileID: 1737796977}
   - component: {fileID: 1737796976}
   - component: {fileID: 1737796975}
+  - component: {fileID: 1737796979}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -50398,6 +50411,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1737796979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737796974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59644d9ac49826408bfeeafef52d215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1784079616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2220410321197469751, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
