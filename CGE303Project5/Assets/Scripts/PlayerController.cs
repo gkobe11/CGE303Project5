@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,9 +32,13 @@ public class PlayerController : MonoBehaviour
     private float coyoteCounter;
     private float jumpBufferCounter;
 
+    private Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -94,6 +98,9 @@ public class PlayerController : MonoBehaviour
         // Limit max horizontal speed
         if (Mathf.Abs(rb.velocity.x) > moveSpeed)
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * moveSpeed, rb.velocity.y);
+
+        animator.SetFloat("xVelocityAbs", Mathf.Abs(rb.velocity.x));
+        animator.SetBool("onGround", isGrounded);
     }
 
     void OnDrawGizmosSelected()
