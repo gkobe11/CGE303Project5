@@ -83,6 +83,13 @@ public class PlayerController : MonoBehaviour
             // Normal jump
             rb.gravityScale = 1f;
         }
+
+        if(moveInput > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1); //right
+        } else if (moveInput < 0){
+            transform.localScale = new Vector3(-1, 1, 1); //left
+        }
     }
 
     void FixedUpdate()
