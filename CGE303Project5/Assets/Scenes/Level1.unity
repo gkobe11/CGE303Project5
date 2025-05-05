@@ -123,32 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &2707425 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7579860954138921582, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
-  m_PrefabInstance: {fileID: 1682501949}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2707426
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2707425}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6697c9e06691174cb143da04ac6e285, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &2707433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 952062658602428918, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
@@ -236,32 +210,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &57360332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8228385185481922731, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
-  m_PrefabInstance: {fileID: 168902922}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &57360333
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57360332}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4cbf08261e5be1e4e95e6db53c1a6383, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &57360340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1600585652403452723, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
@@ -26709,18 +26657,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6921692719490442314, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
-      propertyPath: m_Size.y
-      value: 1.1745354
-      objectReference: {fileID: 0}
-    - target: {fileID: 6921692719490442314, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.053560913
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765886118480493453, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.59
-      objectReference: {fileID: 0}
     - target: {fileID: 8228385185481922731, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -50309,10 +50245,6 @@ PrefabInstance:
     - target: {fileID: 7579860954138921582, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
       propertyPath: m_Name
       value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126168961379985736, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}

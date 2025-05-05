@@ -9,7 +9,7 @@ public class PowerUpCollection : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerPowerUp playerPowerUp = other.GetComponent<PlayerPowerUp>();
-        if (playerPowerUp != null)
+        if (playerPowerUp != null && !playerPowerUp.hasPowerUp)
         {
             string randomPowerUp = powerUpTypes[Random.Range(0, powerUpTypes.Count)];
             playerPowerUp.ReceivePowerUp(randomPowerUp);

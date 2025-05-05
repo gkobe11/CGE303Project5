@@ -103,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private IEnumerator Respawn()
+    public IEnumerator Respawn()
     {
         yield return new WaitForSeconds(deathDelay);
 

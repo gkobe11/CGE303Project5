@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerPowerUp : MonoBehaviour
 {
     private string currentPowerUp = "";
-    private bool hasPowerUp = false;
+    public bool hasPowerUp = false;
 
     public KeyCode usePowerUpButton; // set in inspector
 
