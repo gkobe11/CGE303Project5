@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -77.395004}
+  m_AnchoredPosition: {x: 0, y: -90}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8127379464928592456
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 8127379464982435136}
   - component: {fileID: 8127379464982435137}
   m_Layer: 5
-  m_Name: PlayButtom
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038147, y: 122.2}
+  m_AnchoredPosition: {x: 0, y: 90}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8127379464982435139
@@ -265,7 +265,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8127379464982435136}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2067465917684868065}
+        m_TargetAssemblyTypeName: OpenScene, Assembly-CSharp
+        m_MethodName: SelectScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8127379465000880644
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8127379465217862768}
+  - component: {fileID: 2067465917684868065}
   m_Layer: 0
   m_Name: ControlsPopup
   m_TagString: Untagged
@@ -887,17 +900,30 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8127379465277449351}
-  - {fileID: 8127379466167276892}
-  - {fileID: 8127379465637972809}
   - {fileID: 8127379466022972460}
+  - {fileID: 8127379465637972809}
+  - {fileID: 8127379466167276892}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 266, y: 59}
+  m_AnchoredPosition: {x: 290, y: 109.99999}
   m_SizeDelta: {x: 220, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2067465917684868065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127379465217862769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59644d9ac49826408bfeeafef52d215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: []
 --- !u!1 &8127379465241811346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +1029,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8127379465277449402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 405.773}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8127379464982435142}
@@ -1015,7 +1041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -228, y: -48.99997}
+  m_AnchoredPosition: {x: 0, y: 5.0000305}
   m_SizeDelta: {x: 25.0515, y: 98.8609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8127379465277449348
@@ -1153,7 +1179,7 @@ GameObject:
   - component: {fileID: 8127379465534175691}
   - component: {fileID: 8127379465534175688}
   m_Layer: 5
-  m_Name: SettingsText
+  m_Name: AboutText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1258,7 +1284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -228, y: -49}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 25.051498, y: 98.8609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8127379465637972811
@@ -1335,7 +1361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 54.409}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8127379465908253372
@@ -1634,11 +1660,11 @@ RectTransform:
   - {fileID: 8127379465119169342}
   - {fileID: 8127379465499286904}
   m_Father: {fileID: 8127379465217862768}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -228, y: -49}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 25.051498, y: 98.8609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8127379466022972462
@@ -1757,9 +1783,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Play
-
-'
+  m_Text: Play
 --- !u!1 &8127379466167276893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,7 +1801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8127379466167276892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1792,11 +1816,11 @@ RectTransform:
   - {fileID: 8127379465112235883}
   - {fileID: 8127379465534175689}
   m_Father: {fileID: 8127379465217862768}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -228, y: -49}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 25.051498, y: 98.8609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8127379466167276894
@@ -1952,7 +1976,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10.409}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8127379466286164543
