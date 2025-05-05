@@ -16,6 +16,15 @@ public class PlayerPowerUp : MonoBehaviour
     [SerializeField] private float dashSpeed = 30f;
     [SerializeField] private float dashDuration = 0.2f;
 
+    //Slow power up
+    [SerializeField] private float slowMultiplier = 0.5f;
+    [SerializeField] private float slowDuration = 3f;
+
+    //Fireball power up
+    [SerializeField] private GameObject fireballPrefab;
+    [SerializeField] private float fireballOffset = 0.5f;
+    [SerializeField] private float fireballStunDuration = 1f;
+
     private bool isDashing = false;
 
     void Start()
@@ -51,9 +60,16 @@ public class PlayerPowerUp : MonoBehaviour
 
             Debug.Log("Activating Dash Power-Up");
         }
+        else if (currentPowerUp == "Slow")
+        {
+            if (gameObject.CompareTag("Player1"))
+                StartCoroutine(SlowPlayer(GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerController>()));
+            else if (gameObject.CompareTag("Player2"))
+                StartCoroutine(SlowPlayer(GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerController>()));
+        }
         else if (currentPowerUp == "FireBall")
         {
-            StartCoroutine(FireBallRoutine());
+            FireBall();
             Debug.Log("Activating FireBall Power-Up");
         }
         // Add more power-ups here as needed
@@ -72,7 +88,6 @@ public class PlayerPowerUp : MonoBehaviour
         isDashing = true;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        PlayerController controller = GetComponent<PlayerController>();
 
         // Get raw player input
         float x = Input.GetAxisRaw(controller.horizontalInput);
@@ -107,9 +122,58 @@ public class PlayerPowerUp : MonoBehaviour
         isDashing = false;
     }
 
-    private IEnumerator FireBallRoutine()
+    private IEnumerator SlowPlayer(PlayerController target)
     {
-        // Implement FireBall logic here
-        yield return null; // Placeholder for FireBall logic
+        float originalSpeed = target.moveSpeed;
+        float originalJumpForce = target.jumpForce;
+
+        target.moveSpeed *= slowMultiplier;
+        target.jumpForce *= slowMultiplier;
+
+        yield return new WaitForSeconds(slowDuration);
+
+        target.moveSpeed = originalSpeed;
+        target.jumpForce = originalJumpForce;
+    }
+
+    private void FireBall()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        // Get raw player input
+        float x = Input.GetAxisRaw(controller.horizontalInput);
+        Vector2 currentPosition = rb.position;
+
+        Vector2 shootDirection = new Vector2(x, 0);
+        if (shootDirection.magnitude < 0.1f)
+        {
+            // Fallback to facing direction if no input
+            shootDirection = Vector2.right * (transform.localScale.x >= 0 ? 1 : -1);
+        }
+        else
+        {
+            shootDirection = shootDirection.normalized;
+        }
+        Vector2 spawnPos = currentPosition + shootDirection * fireballOffset;
+
+        GameObject fireball = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
+        fireball.GetComponent<FireballProjectile>().Launch(shootDirection, gameObject);
+    }
+
+    public void fireballHit(PlayerController player)
+    {
+        if (player != null)
+        {
+            StartCoroutine(StunPlayer(player));
+        }
+    }
+
+    public IEnumerator StunPlayer(PlayerController player)
+    {
+        PlayerController enemyController = player.GetComponent<PlayerController>();
+
+        enemyController.DisableMovement();
+        yield return new WaitForSeconds(fireballStunDuration);
+        enemyController.EnableMovement();
     }
 }

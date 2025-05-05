@@ -17,7 +17,7 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 05cb6de98ec0f1a4e91a01d3f98e7d18, type: 3}
   - name: FireBall
     icon: {fileID: 21300000, guid: 588ac5b533407b74ab8b59d1f45e90db, type: 3}
-  - name: Lightning
+  - name: Slow
     icon: {fileID: 21300000, guid: 6efe4530ce7b04044bd5cf179b7bdc64, type: 3}
   - name: Swap
     icon: {fileID: 21300000, guid: 82c9a64c5fe43b04f8c917eef6857dcd, type: 3}

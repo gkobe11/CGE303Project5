@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 40f;
     public float deceleration = 60f;
     public float airControlMultiplier = 0.6f;
+    public bool canMove = true; // Flag to enable/disable movement
 
     [Header("Jumping")]
     public float jumpForce = 10f;
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!canMove) return; // Check if movement is enabled
+
         // Input
         moveInput = Input.GetAxisRaw(horizontalInput);
 
@@ -110,13 +113,18 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("onGround", isGrounded);
     }
 
-    void OnDrawGizmosSelected()
+    public void DisableMovement()
+    {   
+        canMove = false;
+        rb.velocity = Vector2.zero; // Stop all movement
+        rb.isKinematic = true;
+        
+    }
+
+    public void EnableMovement()
     {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
+        canMove = true;
+        rb.isKinematic = false;
     }
 }
 

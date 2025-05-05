@@ -225,9 +225,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &484572108 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8228385185481922731, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
+--- !u!4 &284793001 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 952062658602428918, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
+  m_PrefabInstance: {fileID: 2629753925649898989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &484572116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1600585652403452723, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
   m_PrefabInstance: {fileID: 914982945}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &518069603
@@ -335,7 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab932c75c94c9346be44402f2774b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 484572108}
+  player1: {fileID: 484572116}
+  player2: {fileID: 284793001}
+  smoothing: 5
+  maxZoomOut: 10
+  minZoomIn: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -837,7 +846,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555297466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.91, y: 0.3, z: 0}
+  m_LocalPosition: {x: -11.47, y: 1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1059917159}

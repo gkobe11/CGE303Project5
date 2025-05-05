@@ -205,6 +205,7 @@ MonoBehaviour:
   acceleration: 40
   deceleration: 60
   airControlMultiplier: 0.6
+  canMove: 1
   jumpForce: 10
   coyoteTime: 0.05
   jumpBufferTime: 0.1
@@ -225,10 +226,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d1531bda9cb9e41a22eafd549872a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasPowerUp: 0
   usePowerUpButton: 303
   powerUpUI: {fileID: 0}
   dashSpeed: 30
   dashDuration: 0.2
+  slowMultiplier: 0.5
+  slowDuration: 3
+  fireballPrefab: {fileID: 1199832223813357248, guid: 6e5ea8e66f5e64b449df2837160863f4, type: 3}
+  fireballOffset: 1
+  fireballStunDuration: 1
 --- !u!114 &2048463460
 MonoBehaviour:
   m_ObjectHideFlags: 0

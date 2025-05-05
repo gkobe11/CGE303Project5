@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return;
 
-        if (other.CompareTag("Trap") || other.CompareTag("EnemyAttack"))
+        if (other.CompareTag("Trap"))
         {
             Die();
         }
@@ -62,10 +62,9 @@ public class PlayerHealth : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
-        playerController.enabled = false;
-        rb.velocity = Vector2.zero;
+        playerController.DisableMovement();
 
-        // Optional: play death animation/effect here
+        // play death animation/effect here
 
         FindBestRespawnPoint();
         StartCoroutine(Respawn());
@@ -116,7 +115,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.LogWarning("No valid respawn point found!");
         }
 
-        playerController.enabled = true;
+        playerController.EnableMovement();
         isDead = false;
     }
 }

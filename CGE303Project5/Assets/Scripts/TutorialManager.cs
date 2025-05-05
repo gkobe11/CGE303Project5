@@ -1,6 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -21,9 +21,6 @@ public class TutorialManager : MonoBehaviour
     public GameObject keysPanel; // Link to the UI Panel with keys
     public GameObject checks;
     public GameObject powerUpListUI; // UI with all powerups (only shown in stage 2)
-
-    //Other objects
-    public GameObject tempWall; // Temporary wall to block the players
 
     //Scripts
     private PlayerHealth player1Health;
@@ -128,9 +125,7 @@ public class TutorialManager : MonoBehaviour
 
             case TutorialStage.Done:
                 // Tutorial finished
-                tempWall.SetActive(false); // Remove the wall
-                player1Health.Respawn();
-                player2Health.Respawn();
+                SceneManager.LoadScene("TutorialFinished");
                 break;
         }
     }
