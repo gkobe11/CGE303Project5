@@ -12,7 +12,7 @@ public class PlayerPowerUp : MonoBehaviour
     private PlayerController controller;
     public PowerUpUI powerUpUI; // set in inspector
 
-    PlayerController playerController; // reference to the PlayerController script
+    PlayerController player1Controller; // reference to the PlayerController script
 
     //Dash power up
     [SerializeField] private float dashSpeed = 30f;
@@ -33,7 +33,7 @@ public class PlayerPowerUp : MonoBehaviour
     {
         controller = GetComponent<PlayerController>();
 
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); // reference to playerController script variable
+        player1Controller = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerController>(); // reference to playerController script variable
     }
 
     public void ReceivePowerUp(string powerUp)
@@ -54,7 +54,7 @@ public class PlayerPowerUp : MonoBehaviour
         {
             ActivatePowerUp();
 
-            playerController.PlayPowerUpSound(); // plays power up sound
+            player1Controller.PlayPowerUpSound(); // plays power up sound
         }
     }
 

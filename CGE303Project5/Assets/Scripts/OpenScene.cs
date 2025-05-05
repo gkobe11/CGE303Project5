@@ -41,7 +41,7 @@ public class OpenScene : MonoBehaviour
 
     public void TutorialScene()
     {
-        SceneManager.LoadScene("TutorialLevel");
+        SceneManager.LoadScene("TutorialFinished");
     }
 
     /*
