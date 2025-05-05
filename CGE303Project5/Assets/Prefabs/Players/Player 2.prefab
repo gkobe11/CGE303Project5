@@ -214,6 +214,11 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpSound: {fileID: 8300000, guid: 7010ef7f97313294eb1ed3fb6d5ae330, type: 3}
+  collectSound: {fileID: 0}
+  missSound: {fileID: 0}
+  winSound: {fileID: 0}
+  loseSound: {fileID: 0}
 --- !u!114 &2445831214703128621
 MonoBehaviour:
   m_ObjectHideFlags: 0

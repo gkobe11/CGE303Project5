@@ -26657,6 +26657,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6727805544364869738, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
+      propertyPath: powerUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a1149eff7d919404cbeed3332e792361, type: 3}
+    - target: {fileID: 6727805544364869738, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
+      propertyPath: victorySound
+      value: 
+      objectReference: {fileID: 8300000, guid: 47c4ee60d7ad0b0438ab92a737908c39, type: 3}
     - target: {fileID: 8228385185481922731, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -50234,6 +50242,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5070486542971361967, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
+      propertyPath: powerUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a1149eff7d919404cbeed3332e792361, type: 3}
+    - target: {fileID: 5070486542971361967, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
+      propertyPath: victorySound
+      value: 
+      objectReference: {fileID: 8300000, guid: 47c4ee60d7ad0b0438ab92a737908c39, type: 3}
     - target: {fileID: 7579860954138921582, guid: a99045a31eb16eb4b9cc4ef792b256f9, type: 3}
       propertyPath: m_Name
       value: Player 2

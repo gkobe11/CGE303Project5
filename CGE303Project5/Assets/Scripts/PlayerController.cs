@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
 
+    [Header("Sound Effects")]
+    public AudioClip jumpSound;
+    public AudioClip powerUpSound;
+    public AudioClip victorySound;
+    private AudioSource playerAudio;
+
     private Rigidbody2D rb;
     private float moveInput;
     private bool isGrounded;
@@ -93,6 +99,11 @@ public class PlayerController : MonoBehaviour
         } else if (moveInput < 0){
             transform.localScale = new Vector3(-1, 1, 1); //left
         }
+
+        if (Input.GetButton("Jump") && isGrounded)
+        {
+            playerAudio.PlayOneShot(jumpSound, 1.0f); // plays jump sound
+        }
     }
 
     void FixedUpdate()
@@ -125,6 +136,16 @@ public class PlayerController : MonoBehaviour
     {
         canMove = true;
         rb.isKinematic = false;
+    }
+
+    public void PlayPowerUpSound()
+    {
+        playerAudio.PlayOneShot(powerUpSound, 1.0f);
+    }
+
+    public void PlayVictorySound()
+    {
+        playerAudio.PlayOneShot(victorySound, 1.0f);
     }
 }
 

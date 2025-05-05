@@ -7,6 +7,13 @@ public class FinishLine : MonoBehaviour
 {
     private bool gameEnded = false;
 
+    PlayerController playerController; // reference to the PlayerController script
+
+    void Start()
+    {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); // reference to playerController script variable
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (gameEnded) return;
@@ -14,6 +21,7 @@ public class FinishLine : MonoBehaviour
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             UnlockNewLevel(); // Unlocks next level
+            playerController.PlayVictorySound(); // victory sound
 
             gameEnded = true;
             string winner = other.tag == "Player1" ? "Player 1" : "Player 2";
