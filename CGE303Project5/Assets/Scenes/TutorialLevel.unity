@@ -564,7 +564,6 @@ MonoBehaviour:
   keysPanel: {fileID: 2005437995}
   checks: {fileID: 494417173}
   powerUpListUI: {fileID: 360279804}
-  tempWall: {fileID: 1920685735}
 --- !u!4 &328731267
 Transform:
   m_ObjectHideFlags: 0
@@ -3966,6 +3965,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1071590846}
     m_Modifications:
+    - target: {fileID: 2220410321069955567, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220410321069955567, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220410321069955567, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2220410321197469750, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
