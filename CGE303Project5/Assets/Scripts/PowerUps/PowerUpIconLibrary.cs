@@ -7,6 +7,7 @@ public class PowerUpIconEntry
 {
     public string name;
     public Sprite icon;
+    public string description;
 }
 
 // Add power up icons in Assets/PowerUPIconLibrary
@@ -16,6 +17,8 @@ public class PowerUpIconLibrary : ScriptableObject
     public List<PowerUpIconEntry> icons;
 
     private Dictionary<string, Sprite> iconDict;
+
+    private Dictionary<string, string> descriptionDict;
 
     void OnEnable()
     {
@@ -30,6 +33,13 @@ public class PowerUpIconLibrary : ScriptableObject
     {
         if (iconDict != null && iconDict.ContainsKey(name))
             return iconDict[name];
+        return null;
+    }
+
+    public string GetDescription(string name)
+    {
+        if (iconDict != null && descriptionDict.ContainsKey(name))
+            return descriptionDict[name];
         return null;
     }
 }
