@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 
 
-public class OpenScene : MonoBehaviour
+public class LevelMenu : MonoBehaviour
 {
     public Button[] buttons;
 
@@ -17,7 +17,7 @@ public class OpenScene : MonoBehaviour
         {
             buttons[i].interactable = false;
         }
-        for (int i = 0; i < unlockedLevel; i++)
+        for (int i = 0; i <= unlockedLevel; i++)
         {
             buttons[i].interactable = true;
         }
@@ -29,6 +29,7 @@ public class OpenScene : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
+    /*
     public void MenuScene()
     {
         SceneManager.LoadScene("MenuScene");
@@ -39,12 +40,6 @@ public class OpenScene : MonoBehaviour
         SceneManager.LoadScene("LevelSelectScene");
     }
 
-    public void TutorialScene()
-    {
-        SceneManager.LoadScene("TutorialFinished");
-    }
-
-    /*
     public void SceneOne()
     {
         SceneManager.LoadScene("Level1");
