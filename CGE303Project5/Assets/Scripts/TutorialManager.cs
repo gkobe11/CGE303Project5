@@ -125,7 +125,7 @@ public class TutorialManager : MonoBehaviour
 
             case TutorialStage.Done:
                 // Tutorial finished
-                SceneManager.LoadScene("TutorialFinished");
+                SceneManager.LoadScene("Level0");
                 break;
         }
     }
