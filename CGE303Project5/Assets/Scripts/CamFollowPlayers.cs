@@ -27,11 +27,12 @@ public class CamFollowPlayers : MonoBehaviour
             //calculate midpoint between the players
             Vector3 midpoint = (player1.position + player2.position) / 2;
 
-            //calculate distance between the players
+            //calculate distance between the players (max 35)
             float distance = Vector3.Distance(player1.position, player2.position);
 
             //smoothly move camera to midpoint
             Vector3 targetPosition = midpoint + offset;
+            targetPosition.z = transform.position.z; // Lock Z position
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing * Time.deltaTime);
 
             //adjust camera's zoom based on distance between players
@@ -41,6 +42,31 @@ public class CamFollowPlayers : MonoBehaviour
                 float desiredZoom = Mathf.Clamp(distance, minZoomIn, maxZoomOut);
                 camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, desiredZoom, zoomSpeed * Time.deltaTime);
             }
+
+            //if one player falls too far behind, respawn them
+            if (distance >= 35f)
+            {
+                if (player1.position.x < player2.position.x)
+                {
+                    respawnPlayer(player1.gameObject);
+                }
+                else
+                {
+                    respawnPlayer(player2.gameObject);
+                }
+            }
+        }
+    }
+
+    void respawnPlayer(GameObject player)
+    {
+        if (player.tag == "Player1")
+        {
+            player.transform.position = player2.position + new Vector3(-10, 0, 0);
+        }
+        else if (player.tag == "Player2")
+        {
+            player.transform.position = player1.position + new Vector3(-10, 0, 0);
         }
     }
 }

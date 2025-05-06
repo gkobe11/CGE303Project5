@@ -108,7 +108,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (lastRespawnPoint != null)
         {
-            transform.position = lastRespawnPoint.position;
+            Vector3 respawnPos = lastRespawnPoint.position;
+            respawnPos.z = 0f; // Lock Z axis
+            transform.position = respawnPos;
         }
         else
         {
