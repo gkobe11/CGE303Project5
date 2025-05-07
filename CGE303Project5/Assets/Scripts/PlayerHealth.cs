@@ -68,7 +68,8 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         playerController.DisableMovement();
 
-        // play death animation/effect here
+        // play hurt animation here
+
         audioManager.PlaySFX(audioManager.death); // plays respawn sound
 
         FindBestRespawnPoint();

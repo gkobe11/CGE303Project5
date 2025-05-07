@@ -186,6 +186,9 @@ public class PlayerPowerUp : MonoBehaviour
         PlayerController enemyController = player.GetComponent<PlayerController>();
 
         enemyController.DisableMovement();
+
+        // player hurt animation here
+
         yield return new WaitForSeconds(fireballStunDuration);
         enemyController.EnableMovement();
     }
