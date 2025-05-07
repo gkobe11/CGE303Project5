@@ -12,8 +12,6 @@ public class PlayerPowerUp : MonoBehaviour
     private PlayerController controller;
     public PowerUpUI powerUpUI; // set in inspector
 
-    PlayerController player1Controller; // reference to the PlayerController script
-
     //Dash power up
     [SerializeField] private float dashSpeed = 30f;
     [SerializeField] private float dashDuration = 0.2f;
@@ -29,17 +27,20 @@ public class PlayerPowerUp : MonoBehaviour
 
     private bool isDashing = false;
 
+    AudioManager audioManager;
+
     void Start()
     {
         controller = GetComponent<PlayerController>();
 
-        player1Controller = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerController>(); // reference to playerController script variable
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void ReceivePowerUp(string powerUp)
     {
         currentPowerUp = powerUp;
         hasPowerUp = true;
+        audioManager.PlaySFX(audioManager.collect);
         Debug.Log(gameObject.name + " got power-up: " + powerUp);
 
         if (powerUpUI != null)
@@ -52,9 +53,8 @@ public class PlayerPowerUp : MonoBehaviour
     {
         if (hasPowerUp && Input.GetKeyDown(usePowerUpButton))
         {
+            audioManager.PlaySFX(audioManager.powerup);
             ActivatePowerUp();
-
-            player1Controller.PlayPowerUpSound(); // plays power up sound
         }
     }
 
