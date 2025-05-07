@@ -60,13 +60,29 @@ public class CamFollowPlayers : MonoBehaviour
 
     void respawnPlayer(GameObject player)
     {
-        if (player.tag == "Player1")
+        Transform otherPlayer = (player.tag == "Player1") ? player2 : player1;
+
+        // Start just 2 units above the other player, not from too high
+        Vector3 rayOrigin = otherPlayer.position + new Vector3(-10f, 2f, 0f);
+        float rayDistance = 5f; // Only check a few units downward
+
+        // Cast downward to detect ground
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayDistance, LayerMask.GetMask("Ground"));
+
+        if (hit.collider != null)
         {
-            player.transform.position = player2.position + new Vector3(-10, 0, 0);
+            // Place the player just above the hit point
+            Vector3 safePosition = hit.point + Vector2.up * 1f;
+            safePosition.z = 0f;
+            player.transform.position = safePosition;
         }
-        else if (player.tag == "Player2")
+        else
         {
-            player.transform.position = player1.position + new Vector3(-10, 0, 0);
+            // If no ground is found, fallback to a default spot
+            Vector3 fallback = otherPlayer.position + new Vector3(-10f, 1f, 0f);
+            fallback.z = 0f;
+            Debug.LogWarning("Ground not found. Using fallback position.");
+            player.transform.position = fallback;
         }
     }
 }
