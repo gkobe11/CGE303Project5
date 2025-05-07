@@ -7,11 +7,11 @@ public class FinishLine : MonoBehaviour
 {
     private bool gameEnded = false;
 
-    PlayerController player1Controller; // reference to the PlayerController script
+    AudioManager audioManager; // reference to the AudioManager script
 
     void Start()
     {
-        player1Controller = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerController>(); // reference to playerController script variable
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -20,12 +20,12 @@ public class FinishLine : MonoBehaviour
 
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            UnlockNewLevel(); // Unlocks next level
-            // player1Controller.PlayVictorySound(); // victory sound
+            audioManager.PlaySFX(audioManager.win); // victory sound
 
             gameEnded = true;
             string winner = other.tag == "Player1" ? "Player 1" : "Player 2";
             GameManager.Instance.ShowWinPanel(winner);
+            UnlockNewLevel(); // Unlocks next level
         }
     }
 
