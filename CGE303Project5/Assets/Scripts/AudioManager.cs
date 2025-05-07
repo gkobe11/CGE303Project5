@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour
     [Header("---------- Audio Clip ----------")]
     public AudioClip background;
     public AudioClip jump;
-
     public AudioClip collect;
     public AudioClip dash;
     public AudioClip zap;

@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Start()
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(jumpInput) && isGrounded)
         {
-            //audioManager.PlaySFX(audioManager.jump); // plays jump sound
+            audioManager.PlaySFX(audioManager.jump); // plays jump sound
         }
     }
 

@@ -33,14 +33,14 @@ public class PlayerPowerUp : MonoBehaviour
     {
         controller = GetComponent<PlayerController>();
 
-        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void ReceivePowerUp(string powerUp)
     {
         currentPowerUp = powerUp;
         hasPowerUp = true;
-        //audioManager.PlaySFX(audioManager.collect);
+        audioManager.PlaySFX(audioManager.collect);
         Debug.Log(gameObject.name + " got power-up: " + powerUp);
 
         if (powerUpUI != null)
@@ -53,7 +53,6 @@ public class PlayerPowerUp : MonoBehaviour
     {
         if (hasPowerUp && Input.GetKeyDown(usePowerUpButton))
         {
-            //audioManager.PlaySFX(audioManager.powerup);
             ActivatePowerUp();
         }
     }
@@ -91,6 +90,8 @@ public class PlayerPowerUp : MonoBehaviour
 
     private IEnumerator DashRoutine()
     {
+        audioManager.PlaySFX(audioManager.dash);
+
         isDashing = true;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -130,6 +131,8 @@ public class PlayerPowerUp : MonoBehaviour
 
     private IEnumerator SlowPlayer(PlayerController target)
     {
+        audioManager.PlaySFX(audioManager.zap);
+
         float originalSpeed = target.moveSpeed;
         float originalJumpForce = target.jumpForce;
 
@@ -144,6 +147,8 @@ public class PlayerPowerUp : MonoBehaviour
 
     private void FireBall()
     {
+        audioManager.PlaySFX(audioManager.fireball);
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         // Get raw player input
@@ -176,6 +181,8 @@ public class PlayerPowerUp : MonoBehaviour
 
     public IEnumerator StunPlayer(PlayerController player)
     {
+        audioManager.PlaySFX(audioManager.fireballHit);
+
         PlayerController enemyController = player.GetComponent<PlayerController>();
 
         enemyController.DisableMovement();
