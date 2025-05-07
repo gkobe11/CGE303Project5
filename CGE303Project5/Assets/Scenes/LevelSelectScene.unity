@@ -522,7 +522,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -809,7 +809,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1236,95 +1236,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261201477}
   m_CullTransparentMesh: 1
---- !u!1001 &1284743550
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 504.63666
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 331.98688
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1269.289
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054940, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054942, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749313155062054943, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: win
-      value: 
-      objectReference: {fileID: 8300000, guid: a7b32054432b07648b1809e83a86272f, type: 3}
-    - target: {fileID: 6749313155062054943, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: zap
-      value: 
-      objectReference: {fileID: 8300000, guid: 84aa5a27f62e5694f970bda7cdf7feb4, type: 3}
-    - target: {fileID: 6749313155062054943, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: dash
-      value: 
-      objectReference: {fileID: 8300000, guid: 6b71357e22ffab14d8f9e9bcdcc2cdc4, type: 3}
-    - target: {fileID: 6749313155062054943, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: death
-      value: 
-      objectReference: {fileID: 8300000, guid: 329aaaa121feb4b43a11c4db83cf2327, type: 3}
-    - target: {fileID: 6749313155062054943, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: fireball
-      value: 
-      objectReference: {fileID: 8300000, guid: 533be9c01715b4b4d8eafeebe3112c41, type: 3}
-    - target: {fileID: 6749313155062054943, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 8300000, guid: 1c001b85f2d5ff84b9d0e8a2bbfc448b, type: 3}
-    - target: {fileID: 6749313155062054943, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: fireballHit
-      value: 
-      objectReference: {fileID: 8300000, guid: 66c45faaaf0f8ba47aa76839afa62a5e, type: 3}
-    - target: {fileID: 6749313156033975479, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1c001b85f2d5ff84b9d0e8a2bbfc448b, type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3cc8bbd074d20654c9001fdf428576dd, type: 3}
 --- !u!1 &1443941684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1326,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1603,7 +1514,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -17,14 +17,10 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isDead = false;
 
-    AudioManager audioManager;
-
     void Start()
     {
         playerController = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
-
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
         // Find all respawn points
         GameObject respawnParent = GameObject.Find("RespawnPoints");
@@ -69,7 +65,6 @@ public class PlayerHealth : MonoBehaviour
         playerController.DisableMovement();
 
         // play death animation/effect here
-        audioManager.PlaySFX(audioManager.death); // plays respawn sound
 
         FindBestRespawnPoint();
         StartCoroutine(Respawn());
