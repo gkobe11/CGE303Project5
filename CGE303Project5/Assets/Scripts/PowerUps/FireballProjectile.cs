@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireballProjectile : MonoBehaviour
 {
-    public float speed = 15f;
+    public float speed = 18f;
     public float stunDuration = 1f;
     private bool hit = false;
 

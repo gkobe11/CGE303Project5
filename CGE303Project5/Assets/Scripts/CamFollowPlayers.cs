@@ -63,7 +63,7 @@ public class CamFollowPlayers : MonoBehaviour
         Transform otherPlayer = (player.tag == "Player1") ? player2 : player1;
 
         // Start just 2 units above the other player, not from too high
-        Vector3 rayOrigin = otherPlayer.position + new Vector3(-10f, 2f, 0f);
+        Vector3 rayOrigin = otherPlayer.position + new Vector3(-10f, 0f, 0f);
         float rayDistance = 5f; // Only check a few units downward
 
         // Cast downward to detect ground
