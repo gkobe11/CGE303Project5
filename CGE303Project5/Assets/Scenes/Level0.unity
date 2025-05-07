@@ -1132,7 +1132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1600585652403452723, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.03
+      value: -48.45
       objectReference: {fileID: 0}
     - target: {fileID: 1600585652403452723, guid: 182b3025ec1fb464da3e478e34200f90, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1427,22 +1427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndOfRacePanel
       objectReference: {fileID: 0}
-    - target: {fileID: 2220410321197469751, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2220410321417894324, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 57686375}
-    - target: {fileID: 2220410321417894324, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 2220410321417894324, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d24ded0df77f6441ae4ed0026080165, type: 3}
 --- !u!1 &1531200996
