@@ -125,7 +125,9 @@ public class TutorialManager : MonoBehaviour
 
             case TutorialStage.Done:
                 // Tutorial finished
-                SceneManager.LoadScene("Level0");
+                PlayerPrefs.SetInt("TutorialComplete", 1);
+                //PlayerPrefs.Save();
+                SceneManager.LoadScene("TutorialFinished");
                 break;
         }
     }
@@ -163,7 +165,6 @@ public class TutorialManager : MonoBehaviour
 
             case TutorialStage.Done:
                 tutorialText.text = "";
-                tutorialPanel.SetActive(false);
                 break;
         }
     }

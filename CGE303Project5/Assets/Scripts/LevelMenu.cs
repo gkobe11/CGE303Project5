@@ -8,51 +8,40 @@ using UnityEngine.UI;
 
 public class LevelMenu : MonoBehaviour
 {
-    public Button[] buttons;
+    [Header("Level Buttons in Order")]
+    public Button[] levelButtons; // Assign in Inspector: Level0, Level1, Level2, ...
 
-    private void Awake()
+    private void Start()
     {
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 0);
-        for (int i = 0; i < buttons.Length; i++)
+        // Check if the tutorial is marked as completed in PlayerPrefs
+        bool tutorialComplete = PlayerPrefs.GetInt("TutorialComplete", 0) == 1;
+
+        // Disable all buttons by default
+        foreach (Button btn in levelButtons)
         {
-            buttons[i].interactable = false;
+            btn.interactable = false;
         }
-        for (int i = 0; i <= unlockedLevel; i++)
+
+        if (tutorialComplete)
         {
-            buttons[i].interactable = true;
+            // Unlock all levels if tutorial is completed
+            foreach (Button btn in levelButtons)
+            {
+                btn.interactable = true;
+            }
+        }
+        else
+        {
+            // Only unlock tutorial level (Level0)
+            if (levelButtons.Length > 0)
+                levelButtons[0].interactable = true;
         }
     }
 
-    public void OpenLevel(int levelId)
+    // Call this function from each level button and pass its index (0, 1, 2, ...)
+    public void OpenLevel(int levelIndex)
     {
-        string levelName = "Level" + (levelId);
+        string levelName = "Level" + levelIndex;
         SceneManager.LoadScene(levelName);
     }
-
-    /*
-    public void MenuScene()
-    {
-        SceneManager.LoadScene("MenuScene");
-    }
-
-    public void SelectScene()
-    {
-        SceneManager.LoadScene("LevelSelectScene");
-    }
-
-    public void SceneOne()
-    {
-        SceneManager.LoadScene("Level1");
-    }
-
-    public void SceneTwo()
-    {
-        SceneManager.LoadScene("Level2");
-    }
-
-    public void SceneThree()
-    {
-        SceneManager.LoadScene("Level3");
-    }
-    */
 }

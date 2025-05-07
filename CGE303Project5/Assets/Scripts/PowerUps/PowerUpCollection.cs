@@ -18,6 +18,8 @@ public class PowerUpCollection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("PowerUpCollection: OnTriggerEnter2D called");
+
         PlayerPowerUp playerPowerUp = other.GetComponent<PlayerPowerUp>();
         if (playerPowerUp != null && !playerPowerUp.hasPowerUp)
         {
