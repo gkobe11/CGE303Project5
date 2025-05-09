@@ -27,6 +27,8 @@ public class PlayerPowerUp : MonoBehaviour
 
     private bool isDashing = false;
 
+    private Animator animator;
+
     AudioManager audioManager;
 
     void Start()
@@ -34,6 +36,8 @@ public class PlayerPowerUp : MonoBehaviour
         controller = GetComponent<PlayerController>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
+        animator = GetComponent<Animator>();
     }
 
     public void ReceivePowerUp(string powerUp)
@@ -175,6 +179,8 @@ public class PlayerPowerUp : MonoBehaviour
     {
         if (player != null)
         {
+            animator.SetBool("hit", true);
+
             StartCoroutine(StunPlayer(player));
         }
     }
@@ -188,8 +194,12 @@ public class PlayerPowerUp : MonoBehaviour
         enemyController.DisableMovement();
 
         // player hurt animation here
+        //animator.SetBool("hit", true);
 
         yield return new WaitForSeconds(fireballStunDuration);
         enemyController.EnableMovement();
+
+        //stop hurt animation
+        animator.SetBool("hit", false);
     }
 }

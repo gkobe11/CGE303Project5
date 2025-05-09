@@ -19,12 +19,16 @@ public class PlayerHealth : MonoBehaviour
 
     AudioManager audioManager;
 
+    private Animator animator;
+
     void Start()
     {
         playerController = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
+        animator = GetComponent<Animator>();
 
         // Find all respawn points
         GameObject respawnParent = GameObject.Find("RespawnPoints");
@@ -69,6 +73,8 @@ public class PlayerHealth : MonoBehaviour
         playerController.DisableMovement();
 
         // play hurt animation here
+        animator.SetBool("hit", true);
+
 
         audioManager.PlaySFX(audioManager.death); // plays respawn sound
 

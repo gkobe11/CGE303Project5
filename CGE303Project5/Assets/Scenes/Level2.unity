@@ -28021,7 +28021,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e0ba1ca9764d9db4194ca8172594c77e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -67831,7 +67831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 984755997}
   SFXSource: {fileID: 804348966}
-  background: {fileID: 0}
+  background: {fileID: 8300000, guid: e0ba1ca9764d9db4194ca8172594c77e, type: 3}
   jump: {fileID: 8300000, guid: 7010ef7f97313294eb1ed3fb6d5ae330, type: 3}
   collect: {fileID: 8300000, guid: 14ff6d95ff188c740801a15ed5f339f2, type: 3}
   dash: {fileID: 8300000, guid: 6b71357e22ffab14d8f9e9bcdcc2cdc4, type: 3}
