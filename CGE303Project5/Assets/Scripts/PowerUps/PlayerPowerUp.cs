@@ -178,9 +178,7 @@ public class PlayerPowerUp : MonoBehaviour
     public void fireballHit(PlayerController player)
     {
         if (player != null)
-        {
-            animator.SetBool("hit", true);
-
+        {           
             StartCoroutine(StunPlayer(player));
         }
     }
@@ -194,12 +192,16 @@ public class PlayerPowerUp : MonoBehaviour
         enemyController.DisableMovement();
 
         // player hurt animation here
-        //animator.SetBool("hit", true);
+        Animator targetAnimator = player.GetComponent<Animator>();
+        if (targetAnimator != null)
+        {
+            targetAnimator.SetTrigger("hit");
+        }
 
         yield return new WaitForSeconds(fireballStunDuration);
         enemyController.EnableMovement();
 
         //stop hurt animation
-        animator.SetBool("hit", false);
+        //animator.SetBool("hit", false);
     }
 }

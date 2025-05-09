@@ -73,9 +73,7 @@ public class PlayerHealth : MonoBehaviour
         playerController.DisableMovement();
 
         // play hurt animation here
-        animator.SetBool("hit", true);
-
-
+        
         audioManager.PlaySFX(audioManager.death); // plays respawn sound
 
         FindBestRespawnPoint();
