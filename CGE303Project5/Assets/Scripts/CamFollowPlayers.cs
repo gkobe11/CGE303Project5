@@ -13,6 +13,8 @@ public class CamFollowPlayers : MonoBehaviour
 
     private Vector3 offset;
 
+    public Transform[] respawnPoints;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,27 +64,30 @@ public class CamFollowPlayers : MonoBehaviour
     {
         Transform otherPlayer = (player.tag == "Player1") ? player2 : player1;
 
-        // Start just 2 units above the other player, not from too high
-        Vector3 rayOrigin = otherPlayer.position + new Vector3(-10f, 0f, 0f);
-        float rayDistance = 5f; // Only check a few units downward
+        Transform bestPoint = null;
+        float bestDistance = Mathf.Infinity;
+        Vector2 referencePosition = otherPlayer.position;
 
-        // Cast downward to detect ground
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayDistance, LayerMask.GetMask("Ground"));
-
-        if (hit.collider != null)
+        foreach (Transform point in respawnPoints)
         {
-            // Place the player just above the hit point
-            Vector3 safePosition = hit.point + Vector2.up * 1f;
-            safePosition.z = 0f;
-            player.transform.position = safePosition;
+            if (point.position.x <= referencePosition.x) // Only use points behind the other player
+            {
+                float distance = Vector2.Distance(referencePosition, point.position);
+                if (distance < bestDistance)
+                {
+                    bestDistance = distance;
+                    bestPoint = point;
+                }
+            }
+        }
+
+        if (bestPoint != null)
+        {
+            player.GetComponent<Rigidbody2D>().position = new Vector3(bestPoint.position.x, bestPoint.position.y, 0f);
         }
         else
         {
-            // If no ground is found, fallback to a default spot
-            Vector3 fallback = otherPlayer.position + new Vector3(-10f, 1f, 0f);
-            fallback.z = 0f;
-            Debug.LogWarning("Ground not found. Using fallback position.");
-            player.transform.position = fallback;
+            Debug.LogWarning("No valid respawn point found behind the other player.");
         }
     }
 }
