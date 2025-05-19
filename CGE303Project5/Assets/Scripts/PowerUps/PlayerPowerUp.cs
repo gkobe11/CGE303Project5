@@ -98,6 +98,11 @@ public class PlayerPowerUp : MonoBehaviour
 
         isDashing = true;
 
+        if (animator != null) // Reuse "hurt" animation as dash visual cue
+        {
+            animator.SetTrigger("hit");
+        }
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         // Get raw player input
@@ -136,6 +141,12 @@ public class PlayerPowerUp : MonoBehaviour
     private IEnumerator SlowPlayer(PlayerController target)
     {
         audioManager.PlaySFX(audioManager.zap);
+
+        Animator targetAnimator = target.GetComponent<Animator>();
+        if (targetAnimator != null) // player hurt animation here
+        {
+            targetAnimator.SetTrigger("hit");
+        }
 
         float originalSpeed = target.moveSpeed;
         float originalJumpForce = target.jumpForce;

@@ -479,9 +479,8 @@ PrefabInstance:
       value: "Developer \u2015 Gavin Kobe\nDeveloper \u2015 Mimi Davis\nDeveloper
         \u2015 Maile Fidale\nDeveloper \u2015 Panos Burbulis\nDeveloper \u2015 Charlie
         Brennan\n\n\"Level/Title/Credits\" \u2015 IHateTuesdays\n\"Spicy Flavor\"
-        \u2015  Denis Pavlov Music\n\"Fast Beach 2\" \u2015 Pav2824\n\"Steampunk
-        Victorian \n Orchestra\r\" \u2015 Humanoide Media\n\"One, Two, Exterminate\"
-        \u2015 Fablefly Music\n\n\n"
+        \u2015  Denis Pavlov Music\n\"Fast Beach 2\" \u2015 Pav2824\n\"Fast Rock
+        3\r\" \u2015 Pav2824\n\"One, Two, Exterminate\" \u2015 Fablefly Music\n\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8127379465534175688, guid: 8c051095863c06344b7b643e238b452c, type: 3}
       propertyPath: m_FontData.m_MinSize
@@ -638,6 +637,10 @@ PrefabInstance:
     - target: {fileID: 8127379466245803904, guid: 8c051095863c06344b7b643e238b452c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127379466245803907, guid: 8c051095863c06344b7b643e238b452c, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8127379466245803907, guid: 8c051095863c06344b7b643e238b452c, type: 3}
       propertyPath: m_FontData.m_MinSize
